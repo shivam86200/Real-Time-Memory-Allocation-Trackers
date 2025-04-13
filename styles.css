@@ -1,0 +1,114 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 1rem;
+    background-color: #f8f9fa;
+}
+
+.memory-block {
+    border: 1px solid #ddd;
+    text-align: center;
+    margin: 1px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.memory-block:hover {
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+.memory-block.free {
+    background-color: #e9ecef;
+}
+
+.memory-block.allocated {
+    background-color: #8bc34a;
+    color: white;
+}
+
+.memory-block.selected {
+    box-shadow: 0 0 0 3px #2196F3;
+}
+
+.memory-block.page-fault {
+    background-color: #ffc107;
+    animation: pulse 1s infinite;
+}
+
+.memory-block.segment-violation {
+    background-color: #f44336;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+
+.memory-log {
+    height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+.log-entry {
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.log-entry.info {
+    background-color: #e3f2fd;
+}
+
+.log-entry.warning {
+    background-color: #fff8e1;
+}
+
+.log-entry.error {
+    background-color: #ffebee;
+}
+
+.btn:focus, .btn:active {
+    box-shadow: none !important;
+}
+
+.page-table {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.page-table th, .page-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.page-table th {
+    background-color: #f2f2f2;
+}
+
+.segment-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    font-size: 12px;
+    color: #666;
+}
+
+.tooltip {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 12px;
+    z-index: 100;
+}
